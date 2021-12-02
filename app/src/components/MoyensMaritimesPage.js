@@ -1,12 +1,12 @@
 import React from "react"
 
-class Pres_moyens extends React.Component {
+class MoyensMaritimesPage extends React.Component {
     constructor(props) {
         super(props)
     }
     render() {
         return (
-            <div className="description flex flex-wrap flex-col content-center mt-2 mb-3 ">
+            <div className="description flex flex-wrap flex-col content-center mt-8 mb-8 shadow-md pb-16">
                 <h1 style={{ color: "#e07549" }} className=" text-center font-sans font-bold text-4xl mb-7" >
                     Les Moyens
                 </h1>
@@ -21,4 +21,4 @@ class Pres_moyens extends React.Component {
     }
 }
 
-export default Pres_moyens
+export default MoyensMaritimesPage

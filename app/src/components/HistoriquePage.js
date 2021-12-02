@@ -1,13 +1,13 @@
 import React from "react"
 import Logo from "../assets/RNLI.png"
 
-class Pres_histoire extends React.Component {
+class HistoriquePage extends React.Component {
     constructor(props) {
         super(props)
     }
     render() {
         return (
-            <div className="description flex flex-wrap flex-col content-center mt-2 m-10">
+            <div className="description flex flex-wrap flex-col content-center mt-8 pb-16">
                 <h1 style={{ color: "#e07549" }} className=" text-center font-sans font-bold text-4xl mb-7" >
                     Histoire du sauvetage en mer
                 </h1>
@@ -44,4 +44,4 @@ class Pres_histoire extends React.Component {
     }
 }
 
-export default Pres_histoire
+export default HistoriquePage
