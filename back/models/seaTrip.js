@@ -42,7 +42,18 @@ const seaTripSchema = new Schema({
     boater : {
         type: Array,
         required: false
-    }
+    },
+    boat :
+        {
+            type: Schema.Types.ObjectId,
+            ref: "boat"
+        },
+    saved : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "peopleSaved"
+        }
+    ]
 })
 
 module.exports = mongoose.model("SeaTrip", seaTripSchema, "seaTrip");
