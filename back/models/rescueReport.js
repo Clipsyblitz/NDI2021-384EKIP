@@ -24,7 +24,7 @@ const rescueReportSchema = new Schema({
         type: Number,
         required: true
     },
-    rescue : [
+    seaTrips : [
         {
             type: Schema.Types.ObjectId,
             ref: "seaTrip"
