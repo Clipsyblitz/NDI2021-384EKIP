@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 const usernameDB = "admin";
 const passwordDB = "384ad_minEkip";
