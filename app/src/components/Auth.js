@@ -8,15 +8,15 @@ function Auth(props) {
 
     const connect = () => {
         let headers = new Headers()
-        headers.append('Accept', 'application/json')
+        headers.append('Content-Type', 'application/json')
 
         fetch("localhost:8000/admin/login", {
             method: 'POST',
             headers: headers,
-            body: {
+            body: JSON.stringify({
                 email: formEmail,
                 password: formPassword
-            }
+            })
         }).then(data => setResponse(data))
     }
 
