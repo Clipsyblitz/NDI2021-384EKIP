@@ -10,14 +10,15 @@ function Auth(props) {
         let headers = new Headers()
         headers.append('Content-Type', 'application/json')
 
-        fetch("localhost:8000/admin/login", {
+        fetch("htpp://127.0.0.1:8000/admin/login", {
             method: 'POST',
             headers: headers,
             body: JSON.stringify({
                 email: formEmail,
                 password: formPassword
-            })
-        }).then(data => setResponse(data))
+            }
+            )
+        }).then(data => setResponse(data)).catch(err => console.log(err))
     }
 
     return (
@@ -35,12 +36,11 @@ function Auth(props) {
                     <label className="mb-2" for="password"> Mot de passe </label>
                     <input onChange={(e) => setFormPassword(e.target.value)} className="bg-gray-100 rounded-xl focus:ring outline-none pl-4 pr-4" type="password" id="password"></input>
                 </div>
-
-                <input onClick={connect} className="p-2 rounded-2xl m-auto hover:opacity-50" type="submit" value="Se connecter" />
             </form>
-            <div>
-                { response }
-            </div>
+
+            <button onClick={connect} className="p-2 bg-gray-100 rounded-2xl m-auto hover:opacity-50" >
+                Se connecter
+            </button>
         </div>
 
     )
