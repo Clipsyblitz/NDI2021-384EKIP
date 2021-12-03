@@ -14,7 +14,7 @@ import EstaminetPage from "./components/EstaminetPage"
 import ServicesPage from "./components/ServicesPage"
 import Auth from "./components/Auth"
 
-function App(props) {
+function App() {
   return (
     <Router>
       <Header />
