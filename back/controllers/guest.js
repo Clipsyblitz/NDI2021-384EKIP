@@ -39,6 +39,24 @@ module.exports = {
     }
   },
 
+  getBoatById: async (req, res, next) => {
+    try {
+      const boatId = req.params.boatId;
+
+      const boat = await Boat.findById(boatId);
+
+      return res.status(200).json({
+        boat: boat,
+      });
+    } catch (error) {
+      console.log(error);
+      if (!error.statusCode) {
+        error.statusCode = 500;
+      }
+      next(error);
+    }
+  },
+
   getSearch: async (req, res, next) => {
     try {
       const { type, data } = req.params;
