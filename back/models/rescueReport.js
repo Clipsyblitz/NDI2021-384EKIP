@@ -29,6 +29,11 @@ const rescueReportSchema = new Schema({
       ref: "seaTrip",
     },
   ],
+
+  century: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model(
