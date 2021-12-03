@@ -11,6 +11,7 @@ const clusterDB = "cluster0.party";
 const dbName = "384ekipDB";
 
 const admin = require("./routes/admin");
+const guest = require("./routes/guest");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,6 +38,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/admin", admin);
+app.use("/guest", guest);
 
 mongoose
   .connect(MONGO_DB_URI)
