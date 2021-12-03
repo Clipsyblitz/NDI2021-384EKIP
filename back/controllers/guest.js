@@ -89,4 +89,29 @@ module.exports = {
       next(error);
     }
   },
+
+  postCreateSeaTrip : async (req, res, next) => {
+    try {
+      const {date, location, type} = req.body;
+      const seaTrip = new SeaTrip({
+        date : date,
+        location : location,
+        type : type
+      });
+      await seaTrip.save();
+      return res.status(200).json({
+        message: "seaTrip insert successful",
+      });
+
+    } catch(error) {
+      console.log(error);
+      if (!error.statusCode) {
+        error.statusCode = 500;
+      }
+      next(error);
+    }
+
+  }
+
+
 };

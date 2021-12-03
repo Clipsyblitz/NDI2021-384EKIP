@@ -9,7 +9,7 @@ router.get("/getRescueReport/:century", guestController.getRescueReport);
 router.get("/getSeaTrip/:seaTripId", guestController.getSeaTripById);
 router.get("/getBoat/:boatId", guestController.getBoatById);
 router.get("/search/:type/:data", guestController.getSearch);
-
+router.post("/createSeaTrip", guestController.postCreateSeaTrip);
 
 
 module.exports = router;
