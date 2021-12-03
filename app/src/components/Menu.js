@@ -2,6 +2,7 @@ import { useState } from "react"
 import Logo from "../assets/logo.png"
 import OpenedMenuIcon from "../assets/menu.svg"
 import ClosedMenuIcon from "../assets/x.svg"
+import UserIcon from "../assets/user.svg"
 
 const linkStyle = `w-max mb-2 ml-2 pl-2 pr-2 border-b-4 border-transparent`
 
@@ -20,8 +21,9 @@ function Menu(props) {
                 </div>
 
             </a>
-            <div className=" z-10 flex items-center mr-2" onClick={() => setMenuOpen(!isMenuOpen)}>
-                <img className="h-10" src={isMenuOpen ? ClosedMenuIcon : OpenedMenuIcon} alt="Icon menu" />
+            <div className=" z-10 flex items-center mr-2">
+                <a href="/auth"><img className="h-10 mr-4" src={UserIcon} alt="icon user" /></a>
+                <img onClick={() => setMenuOpen(!isMenuOpen)} className="h-10" src={isMenuOpen ? ClosedMenuIcon : OpenedMenuIcon} alt="Icon menu" />
                 {isMenuOpen && (
                     <div className="mb-2 shadow-lg absolute text-lg top-16 right-0 w-max pr-8 flex flex-col w- bg-white">
                         {links.map((elt) => {

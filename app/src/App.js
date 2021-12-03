@@ -12,6 +12,7 @@ import HistoriquePage from "./components/HistoriquePage"
 import ComplementsPage from "./components/ComplementsPage"
 import EstaminetPage from "./components/EstaminetPage"
 import ServicesPage from "./components/ServicesPage"
+import Auth from "./components/Auth"
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/historique" element={<HistoriquePage />} />
         <Route path="/complements" element={<ComplementsPage />} />
         <Route path="/estaminet" element={<EstaminetPage />} />
+        <Route path="/auth" element={<Auth />} />
         {/* <Route path="/qui-sommes-nous" element={<WhoPage />} />
         <Route path="/presse" element={<PressePage />} />
         <Route path="/sites-amis" element={<SitesAmisPage />} /> */}
