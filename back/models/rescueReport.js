@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const rescueReportSchema = new Schema({
-
+    century : {
+        type: Number,
+        required: true
+    },
     period : {
         type: String,
         required: true
