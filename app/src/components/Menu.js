@@ -11,6 +11,20 @@ const links = ['sauveteurs', 'sorties', 'stations', 'services', 'moyens-maritime
 function Menu(props) {
 
     const [isMenuOpen, setMenuOpen] = useState(false)
+    const [typeSearch, setTypeSearch] = useState("Bateau")
+    const [searchValue, setSearchValue] = useState("")
+    const translate = {
+        "Bateau": "boat",
+        "Sauveur": "rescuer",
+    }
+
+    const search = async () => {
+        const r = await fetch(`https://ekip384.herokuapp.com/guest/search/${translate[typeSearch]}/${searchValue}`)
+            .then(data => data.json())
+            .then(r => r)
+            
+        alert(`Résultat de la recherche :\n ${JSON.stringify(r)}`)
+    }
 
     return (
         <div className="menu flex justify-between h-16 shadow-md">
@@ -21,7 +35,15 @@ function Menu(props) {
                 </div>
 
             </a>
-            <div className=" z-10 flex items-center mr-2">
+            <div className="flex items-center mr-2">
+                <div>
+                    <select onChange={(e) => setTypeSearch(e.target.value)} className="pl-1 h-8 rounded-l-xl bg-gray-100">
+                        <option>Bateau</option>
+                        <option disabled>Sauveur</option>
+                        <option disabled>Secouru</option>
+                    </select>
+                    <input onBlur={() => search()} onChange={(e) => setSearchValue(e.target.value)} className="border-l-2 bg-gray-100 p-1 rounded-r-xl h-8" type="text" />
+                </div>
                 <a href="/auth"><img className="h-10 mr-4" src={UserIcon} alt="icon user" /></a>
                 <img onClick={() => setMenuOpen(!isMenuOpen)} className="h-10" src={isMenuOpen ? ClosedMenuIcon : OpenedMenuIcon} alt="Icon menu" />
                 {isMenuOpen && (

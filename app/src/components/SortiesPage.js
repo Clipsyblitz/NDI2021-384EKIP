@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import SieclePage from './SieclePage'
 
 const linkStyle = `w-max mb-2 ml-2 pl-2 pr-2 border-b-4 border-transparent`
 
@@ -10,11 +9,6 @@ function SortiesPage() {
 
 
     const getData = async (int) => {
-        const r = await fetch('http://127.0.0.1:8000/guest/getRescueReport/20', {
-            method: 'GET'
-        })
-        const rj = await r.json()
-        setResponse(rj.rescueReport)
         setSelected(int)
     }
 
@@ -31,9 +25,8 @@ function SortiesPage() {
                 <p onClick={() => getData("21")} className={`${linkStyle} ${selected === "21" ? " bg-red-200" : "hover:border-b-2 hover:border-red-400"}`} >SNSM 21eme siècle</p>
             </div>
 
-            {selected && <SieclePage siecle={selected} rescues={response                                                                         }/>}
 
-            {/* <div className="m-auto text-justify">
+            <div className="m-auto text-justify">
                 <p className="mb-1">La présence de bancs de sable a toujours rendu la navigation périlleuse  au large du dunkerquois.</p>
                 <p className="mb-1">Si ces bancs ont rendu moult services à l’incontournable Jean Bart, ils sont aussi responsables de nombreux naufrages.</p>
                 <p className="mb-1">Faisant abstraction des dangers, de vaillants marins ont tout fait afin d’en réduire les conséquences, sauvant un grand nombre de personnes.</p>
@@ -41,7 +34,7 @@ function SortiesPage() {
                 <p>Dans ces textes, certaines tournures peuvent paraître archaïques , nous n’avons pas voulu les modifier pour garder la simplicité</p>
                 <p className="mb-1">et l’authenticité de ces témoignages.</p>
                 <p>On parle de sorties en mer car toutes ces missions ne se soldent pas forcément par un sauvetage. (refus d’être assisté, fausse alerte….).</p>
-            </div> */}
+            </div>
         </div >
     )
 }
